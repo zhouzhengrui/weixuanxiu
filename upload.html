@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>资料上传</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="icofont/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- JS -->
+    <script type="text/javascript" src="js/system.js"></script>
+
+</head>
+
+
+<body onload="loaded()">
+    <!-- footer start -->
+    <footer class="navbar">
+        <div class="item waves-effect" data-href="index.html">
+            <i class="icon-home"></i>
+            <p>首页</p>
+        </div>
+        <div class="item waves-effect" data-href="about.html">
+            <i class="icon-star"></i>
+            <p>活动介绍</p>
+        </div>
+        <div class="item">
+            <div class="important-button active">
+                <div class="important-button-wave-1"></div>
+                <div class="important-button-wave-2"></div>
+                <div class="important-button-bubble-1"></div>
+                <div class="important-button-bubble-2"></div>
+                <img class="important-button-image" src="img/important-button-1.png" alt="">
+                <img class="important-button-image" src="img/important-button-upload.png" alt="">
+            </div>
+        </div>
+        <div class="item waves-effect" data-href="news.html">
+            <i class="icon-picture"></i>
+            <p>活动花絮</p>
+        </div>
+        <div class="item waves-effect" data-href="rank.html">
+            <i class="icon-group"></i>
+            <p>榜单</p>
+        </div>
+    </footer>
+    <!-- footer over -->
+    <!-- main start -->
+    <div class="main main-gray">
+        <div class="scroller">
+            <div class="spacing"></div>
+            <!-- list start -->
+            <div class="list list-border">
+                <!-- item start -->
+                <div class="item">
+                    <div class="row">
+                        <label class="label">姓名</label>
+                        <div class="input">
+                            <input class="input" type="text" placeholder="请输入参赛者姓名">
+                        </div>
+                    </div>
+                </div>
+                <!-- item over -->
+                <!-- item start -->
+                <div class="item">
+                    <div class="row">
+                        <label class="label">联系方式</label>
+                        <div class="input">
+                            <input class="input" type="tel" placeholder="请输入联系电话">
+                        </div>
+                    </div>
+                </div>
+                <!-- item over -->
+                <!-- item start -->
+                <div class="item arrow-right">
+                    <div class="row">
+                        <label class="label">年龄</label>
+                        <div class="input">
+                            <select class="select">
+                                <option>5周岁</option>
+                                <option>6周岁</option>
+                                <option>7周岁</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- item over -->
+                <!-- item start -->
+                <div class="item arrow-right">
+                    <div class="row">
+                        <label class="label">省份</label>
+                        <div class="input">
+                            <select class="select" id="province"></select>
+                        </div>
+                    </div>
+                </div>
+                <!-- item over -->
+                <!-- item start -->
+                <div class="item arrow-right">
+                    <div class="row">
+                        <label class="label">城市</label>
+                        <div class="input">
+                            <select class="select" id="city"></select>
+                        </div>
+                    </div>
+                </div>
+                <!-- item over -->
+            </div>
+            <!-- list over -->
+            <div class="spacing"></div>
+            <!-- list start -->
+            <div class="list list-border">
+                <!-- item start -->
+                <div class="item">
+                    <div class="row">
+                        <label class="label">头像</label>
+                        <div class="image-upload">
+                            <p class="gray small">选择清晰的面部特写照片</p>
+                            <div class="avatar">
+                                <div class="upload">
+                                    <i class="icon-plus"></i>
+                                    <input type="file">
+                                </div>
+                                <!-- <img class="image" src="http://placehold.it/50x50" alt=""> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- item over -->
+                <!-- item start -->
+                <div class="item">
+                    <div class="row">
+                        <label class="label">生活照</label>
+                        <div class="image-upload">
+                            <p class="gray small">选择1-3张照片</p>
+                            <div class="photo">
+                                <div class="photo-item">
+                                    <img src="http://placehold.it/50x50" alt="">
+                                    <button class="delete"><span class="icon-cancel-2"></span></button>
+                                </div>
+                                <div class="photo-item">
+                                    <img src="http://placehold.it/50x30" alt="">
+                                    <button class="delete"><span class="icon-cancel-2"></span></button>
+                                </div>
+                                <div class="upload">
+                                    <i class="icon-plus"></i>
+                                    <input type="file">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- item over -->
+            </div>
+            <!-- list over -->
+            <div class="spacing"></div>
+            <!-- list start -->
+            <div class="list list-border">
+                <!-- item start -->
+                <div class="item">
+                    <div class="row">
+                        <label class="label top-fixed">选秀宣言</label>
+                        <div class="input">
+                            <textarea class="textarea" name="name" rows="3" placeholder="请输入30字以内的选秀宣言"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- item over -->
+            </div>
+            <!-- list over -->
+            <!-- explain start -->
+            <div class="explain align-center">
+                <p class="red">错误提示</p>
+            </div>
+            <!-- explain over -->
+            <!-- button start -->
+            <div class="button-group">
+                <button class="button button-block button-smooth waves-effect waves-light" data-href="upload-finish.html">
+                    <span class="button-inner">提交</span>
+                </button>
+            </div>
+            <!-- button over -->
+        </div>
+    </div>
+    <!-- main over -->
+
+    <!-- JavaScript start -->
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/nprogress/nprogress.js"></script>
+    <script type="text/javascript" src="js/iscroll/iscroll-probe.js"></script>
+    <script type="text/javascript" src="js/swiper/swiper.min.js"></script>
+    <script type="text/javascript" src="js/masonry/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/modalEffects/classie.js"></script>
+    <script type="text/javascript" src="js/modalEffects/modalEffects.js"></script>
+    <script type="text/javascript" src="js/waves/waves.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <!-- JavaScript over -->
+
+    <script type="text/javascript" src="js/area/jquery.area.js"></script>
+
+</body>
+
+</html>

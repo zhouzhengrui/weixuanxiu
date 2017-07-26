@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>首页</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="icofont/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- JS -->
+    <script type="text/javascript" src="js/system.js"></script>
+
+</head>
+
+
+<body onload="loaded()">
+    <!-- footer start -->
+    <footer class="navbar">
+        <div class="item waves-effect active" data-href="index.html">
+            <i class="icon-home"></i>
+            <p>首页</p>
+        </div>
+        <div class="item waves-effect " data-href="about.html">
+            <i class="icon-star"></i>
+            <p>活动介绍</p>
+        </div>
+        <div class="item" data-href="upload.html">
+            <div class="important-button">
+                <div class="important-button-wave-1"></div>
+                <div class="important-button-wave-2"></div>
+                <div class="important-button-bubble-1"></div>
+                <div class="important-button-bubble-2"></div>
+                <img class="important-button-image" src="img/important-button-1.png" alt="">
+                <img class="important-button-image" src="img/important-button-upload.png" alt="">
+            </div>
+        </div>
+        <div class="item waves-effect " data-href="news.html">
+            <i class="icon-picture"></i>
+            <p>活动花絮</p>
+        </div>
+        <div class="item waves-effect " data-href="rank.html">
+            <i class="icon-group"></i>
+            <p>榜单</p>
+        </div>
+    </footer>
+
+    <!-- footer over -->
+    <!-- main start -->
+    <div class="main nprogress-fade nprogress-out">
+        <div class="scroller">
+            <!-- slideshow start -->
+            <div class="swiper-container image-slide" id="image-slide">
+                <div class="swiper-wrapper">
+                    <!-- group start -->
+                    <div class="swiper-slide">
+                        <img class="swiper-lazy" data-src="img/image-slide-1.jpg" alt="">
+                        <div class="swiper-lazy-preloader"></div>
+                    </div>
+                    <!-- group over -->
+                    <!-- group start -->
+                    <div class="swiper-slide">
+                        <img class="swiper-lazy" data-src="http://placehold.it/375x200" alt="">
+                        <div class="swiper-lazy-preloader"></div>
+                    </div>
+                    <!-- group over -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- slideshow over -->
+            <!-- date start -->
+            <div class="date-box hairline">
+                <div class="item align-left">
+                    <p>距离截止日期还有</p>
+                    <h2>30天12时59分</h2>
+                </div>
+                <div class="item align-right">
+                    <p>已报名</p>
+                    <h2>68</h2>
+                </div>
+            </div>
+            <!-- date over -->
+            <!-- search start -->
+            <div class="searchbar">
+                <form action="">
+                    <div class="search-input">
+                        <i class="icon-search"></i>
+                        <input class="search" type="search" placeholder="请输入编号或姓名">
+                    </div>
+                    <button class="search-submit">搜索</button>
+                </form>
+            </div>
+            <!-- search over -->
+            <!-- list start -->
+            <div class="list-masonry">
+                <div class="item-sizer"></div>
+                <div class="gutter-sizer"></div>
+                <!-- item start -->
+                <div class="item" data-href="player.html">
+                    <div class="image">
+                        <img src="http://placehold.it/169x100" alt="">
+                    </div>
+                    <div class="info hairline">
+                        <h3 class="name">方星懿<small>99号</small></h3>
+                        <p>太阳有属于他的光芒，我也能创造出属于我的辉煌</p>
+                    </div>
+                </div>
+                <!-- item over -->
+                <!-- item start -->
+                <div class="item" data-href="player.html">
+                    <div class="image">
+                        <img src="http://placehold.it/169x300" alt="">
+                    </div>
+                    <div class="info hairline">
+                        <h3 class="name">夏赵翔<small>98号</small></h3>
+                        <p>小事成就大事，细节成就完美</p>
+                    </div>
+                </div>
+                <!-- item over -->
+                <!-- item start -->
+                <div class="item" data-href="player.html">
+                    <div class="image">
+                        <img src="http://placehold.it/169x200" alt="">
+                    </div>
+                    <div class="info hairline">
+                        <h3 class="name">王瑞涵<small>97号</small></h3>
+                        <p>虽然我不是最美丽的，但我是最认真的</p>
+                    </div>
+                </div>
+                <!-- item over -->
+            </div>
+            <div class="preloader">
+                <div class="preloader-icon spin"></div>
+                <p>正在加载</p>
+            </div>
+            <!-- list over -->
+        </div>
+    </div>
+    <!-- main over -->
+
+    <!-- JavaScript start -->
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/nprogress/nprogress.js"></script>
+    <script type="text/javascript" src="js/iscroll/iscroll-probe.js"></script>
+    <script type="text/javascript" src="js/swiper/swiper.min.js"></script>
+    <script type="text/javascript" src="js/masonry/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/modalEffects/classie.js"></script>
+    <script type="text/javascript" src="js/modalEffects/modalEffects.js"></script>
+    <script type="text/javascript" src="js/waves/waves.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <!-- JavaScript over -->
+
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+
+            // masonry & imagesLoaded
+            $('.list-masonry').imagesLoaded( function() {
+                var masonry = new Masonry( '.list-masonry', {
+                    columnWidth: '.item-sizer',
+                    gutter: '.gutter-sizer',
+                    itemSelector: '.item',
+                    percentPosition: true
+                });
+                setTimeout(function () {
+                    mainScroll.refresh();
+                }, 100);
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
