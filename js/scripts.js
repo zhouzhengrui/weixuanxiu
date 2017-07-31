@@ -35,17 +35,9 @@ function loaded() {
         fadeScrollbars: true,
         shrinkScrollbars: 'scale',
         preventDefaultException: {tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|IMG)$/ },
+        probeType: 2,
         tap: true
     });
-
-    if (document.querySelector(".bottom-modal-scroll")) {
-        bottomModalScroll = new IScroll('.bottom-modal-scroll', {
-            scrollbars: 'custom',
-            fadeScrollbars: true,
-            shrinkScrollbars: 'scale',
-            click: true
-        });
-    }
 
 }
 

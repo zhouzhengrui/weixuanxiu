@@ -75,9 +75,30 @@
                     <p class="title">快速的为企、事业单位提供一站式顾问服务</p>
                     <span class="date">2月12日</span>
                 </div>
+                <div class="item waves-effect" data-href="news-content.html">
+                    <p class="title">专注于品牌化高端企业网站建设和专业性软件的定制开发</p>
+                    <span class="date">2月12日</span>
+                </div>
+                <div class="item waves-effect" data-href="news-content.html">
+                    <p class="title">我们是一流品牌首选的互联网综合服务提供者</p>
+                    <span class="date">2月12日</span>
+                </div>
+                <div class="item waves-effect" data-href="news-content.html">
+                    <p class="title">我们坚信，优秀的产品是优雅设计与精湛技术的完美结合</p>
+                    <span class="date">2月12日</span>
+                </div>
+                <div class="item waves-effect" data-href="news-content.html">
+                    <p class="title">努力与真诚，坚持与梦想</p>
+                    <span class="date">2月12日</span>
+                </div>
+                <div class="item waves-effect" data-href="news-content.html">
+                    <p class="title">快速的为企、事业单位提供一站式顾问服务</p>
+                    <span class="date">2月12日</span>
+                </div>
             </div>
+            <!-- 没有分页时移除 preloader -->
             <div class="preloader">
-                <div class="preloader-icon spin"></div>
+                <div class="preloader-icon"></div>
                 <p>正在加载</p>
             </div>
             <!-- list over -->
@@ -97,6 +118,41 @@
     <script type="text/javascript" src="js/waves/waves.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
     <!-- JavaScript over -->
+
+    <script type="text/javascript">
+        function loaded() {
+
+            mainScroll = new IScroll('.main', {
+                scrollbars: 'custom', // 自定义滚动条样式
+                fadeScrollbars: true, // 滚动条淡入淡出
+                shrinkScrollbars: 'scale', // 滚动条弹性可收缩
+                preventDefaultException: {
+                    tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|IMG)$/ // 例外
+                },
+                tap: true // 开启轻触事件
+            });
+
+            // 滚动结束监听
+            mainScroll.on('scrollEnd', function() {
+
+                // 上划加载
+                if (this.y <= (this.maxScrollY + $('.preloader').outerHeight())) {
+                    $('.preloader-icon').addClass('spin');
+                    $('.preloader p').html('正在加载');
+                    alert('开始加载数据');
+                    // 加载完成后, 刷新容器尺寸
+                    setTimeout(function() {
+                        mainScroll.refresh();
+                    }, 100);
+                } else {
+                    $('.preloader-icon').removeClass('spin');
+                    $('.preloader p').html('加载更多');
+                }
+
+            });
+
+        }
+    </script>
 
 </body>
 

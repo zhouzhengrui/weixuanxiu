@@ -84,7 +84,7 @@
             </div>
             <!-- date over -->
             <!-- search start -->
-            <div class="searchbar">
+            <div class="searchbar scroll-fixed">
                 <form action="">
                     <div class="search-input">
                         <i class="icon-search"></i>
@@ -132,9 +132,10 @@
                 </div>
                 <!-- item over -->
             </div>
+            <!-- 没有分页时移除 preloader -->
             <div class="preloader">
-                <div class="preloader-icon spin"></div>
-                <p>正在加载</p>
+                <div class="preloader-icon"></div>
+                <p>加载更多</p>
             </div>
             <!-- list over -->
         </div>
@@ -155,22 +156,88 @@
     <!-- JavaScript over -->
 
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
+        function loaded() {
 
-            // masonry & imagesLoaded
-            $('.list-masonry').imagesLoaded( function() {
-                var masonry = new Masonry( '.list-masonry', {
-                    columnWidth: '.item-sizer',
-                    gutter: '.gutter-sizer',
-                    itemSelector: '.item',
-                    percentPosition: true
-                });
-                setTimeout(function () {
-                    mainScroll.refresh();
-                }, 100);
+            NProgress.done(); // 预加载完成
+            $('.nprogress-fade').removeClass('nprogress-out'); // 容器淡入
+
+            mainScroll = new IScroll('.main', {
+                scrollbars: 'custom', // 自定义滚动条样式
+                fadeScrollbars: true, // 滚动条淡入淡出
+                shrinkScrollbars: 'scale', // 滚动条弹性可收缩
+                preventDefaultException: {
+                    tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|IMG)$/ // 例外
+                },
+                probeType: 3, // 开启像素级scroll监听
+                tap: true // 开启轻触事件
             });
 
-        });
+            // 滚动监听
+            mainScroll.on('scroll', function() {
+
+                // 搜索栏顶部固定
+                var distanceTop = $('#image-slide').outerHeight() + $('.date-box').outerHeight();
+                if (this.y <= -distanceTop) {
+                    $('.scroll-fixed').addClass('scroll-fixed-active');
+                    $('.scroll-fixed-active').css({
+                        "top": -1 * this.y + "px"
+                    });
+                    $('.list-masonry').css({
+                        'margin-top': $('.searchbar').outerHeight() + 'px'
+                    });
+                } else {
+                    $('.scroll-fixed').removeClass('scroll-fixed-active');
+                    $('.list-masonry').css({
+                        "margin-top": "0"
+                    });
+                }
+
+            });
+
+            // 滚动结束监听
+            mainScroll.on('scrollEnd', function() {
+
+                // 上划加载
+                if (this.y <= (this.maxScrollY + $('.preloader').outerHeight())) {
+                    $('.preloader-icon').addClass('spin');
+                    $('.preloader p').html('正在加载');
+                    alert('开始加载数据');
+                    // 加载完成后, 刷新容器尺寸
+                    setTimeout(function() {
+                        mainScroll.refresh();
+                    }, 100);
+                } else {
+                    $('.preloader-icon').removeClass('spin');
+                    $('.preloader p').html('加载更多');
+                }
+
+            });
+
+            jQuery(document).ready(function($) {
+
+                // 瀑布流 & 图片预加载
+                $('.list-masonry').imagesLoaded(function() {
+                    var masonry = new Masonry('.list-masonry', {
+                        columnWidth: '.item-sizer',
+                        gutter: '.gutter-sizer',
+                        itemSelector: '.item',
+                        percentPosition: true,
+                        visibleStyle: {
+                            transform: 'translateY(0)',
+                            opacity: 1
+                        },
+                        hiddenStyle: {
+                            transform: 'translateY(100px)',
+                            opacity: 0
+                        },
+                    });
+                }, setTimeout(function() {
+                    mainScroll.refresh();
+                }, 100));
+
+            });
+
+        }
     </script>
 
 </body>

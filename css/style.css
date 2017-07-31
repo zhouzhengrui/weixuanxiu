@@ -3204,6 +3204,11 @@ footer.navbar .important-button.active .important-button-bubble-2 {
   background-color: #ff2d55;
 }
 
+.searchbar.scroll-fixed-active {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #DDDDDD;
+}
+
 header.searchbar {
   height: 50px;
   padding: 10px 15px;
@@ -3426,6 +3431,13 @@ img.gift-list-title {
 
 .explain .small {
   font-size: 12px;
+}
+
+.scroll-fixed-active {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {

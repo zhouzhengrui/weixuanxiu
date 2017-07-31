@@ -162,8 +162,9 @@
                 </div>
                 <!-- item over -->
             </div>
+            <!-- 没有分页时移除 preloader -->
             <div class="preloader">
-                <div class="preloader-icon spin"></div>
+                <div class="preloader-icon"></div>
                 <p>正在加载</p>
             </div>
             <!-- list over -->
@@ -315,6 +316,40 @@
     <script type="text/javascript" src="js/scripts.js"></script>
     <!-- JavaScript over -->
 
+    <script type="text/javascript">
+        function loaded() {
+
+            mainScroll = new IScroll('.main', {
+                scrollbars: 'custom', // 自定义滚动条样式
+                fadeScrollbars: true, // 滚动条淡入淡出
+                shrinkScrollbars: 'scale', // 滚动条弹性可收缩
+                preventDefaultException: {
+                    tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|IMG)$/ // 例外
+                },
+                tap: true // 开启轻触事件
+            });
+
+            // 滚动结束监听
+            mainScroll.on('scrollEnd', function() {
+
+                // 上划加载
+                if (this.y <= (this.maxScrollY + $('.preloader').outerHeight())) {
+                    $('.preloader-icon').addClass('spin');
+                    $('.preloader p').html('正在加载');
+                    alert('开始加载数据');
+                    // 加载完成后, 刷新容器尺寸
+                    setTimeout(function() {
+                        mainScroll.refresh();
+                    }, 100);
+                } else {
+                    $('.preloader-icon').removeClass('spin');
+                    $('.preloader p').html('加载更多');
+                }
+
+            });
+
+        }
+    </script>
 </body>
 
 </html>
